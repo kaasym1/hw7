@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.example.hw7.databinding.FragmentContinentsBinding
 
 
@@ -41,10 +43,6 @@ class ContinentsFragment : Fragment(),OnClick {
     }
 
     override fun onClick(model: Continent) {
-        val bundle = Bundle()
-        bundle.putSerializable("key", model)
-        val intent = Intent(requireContext(), CountryFragment::class.java)
-        intent.putExtras(bundle)
-        startActivity(intent)
+        findNavController().navigate(R.id.countryFragment, bundleOf("key" to model))
     }
 }

@@ -55,7 +55,7 @@ class CountryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val data = activity?.intent?.getStringExtra("key") as Continent
+        val data = arguments?.getSerializable("key") as Continent
         if (data.title == "SA") {
             addData2()
         } else if (data.title == "NA") {
